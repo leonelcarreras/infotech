@@ -7,7 +7,7 @@ from django.db.models import Count, Q
 from .forms import CommentForm, CreateUserForm, OrderForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.core.cache import cache
+
 
 
 
