@@ -1,0 +1,55 @@
+{% load static %}
+
+<script>
+$(".project-detail").slick({
+	slidesToShow: 1,
+	arrows: false,
+	asNavFor: '.project-strip',
+	autoplay: true,
+	autoplaySpeed: 3000
+});
+
+$(".project-strip").slick({
+	slidesToShow: 5,
+	slidesToScroll: 1,
+	arrows: false,
+	asNavFor: '.project-detail',
+	dots: false,
+	infinite: true,
+	centerMode: true,
+	focusOnSelect: true
+});
+</script>
+
+<link rel="stylesheet" href="{% static 'css/estilos.scss' %}">
+- var i = 1
+- var j = 1
+- var limit = 10
+
+.section.section-project
+
+	h2.section__title Project Carousel
+	small.section__subtitle 
+		| A simple Synchronised carousel by 
+		a(href="https://codepen.io/ariona") @ariona_rian
+		br
+		| using Slick Carousel
+	
+	.project-carousel
+	
+		.project-strip
+		
+			while i++ < limit
+				.project
+					img(src="http://unsplash.it/578/360/?image=" + i * 13 + "&blur", alt="")
+
+
+		.project-screen
+		
+			.project-detail
+			
+				while j++ < limit
+					.project
+						img(src="http://unsplash.it/578/361/?image=" + j * 13 , alt="")
+				
+			.screen-frame

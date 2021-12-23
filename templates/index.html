@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <!-- Hero Section-->
+    
+    <section style="background: url({% static 'img/hero.jpg' %}); background-size: cover; background-position: center; !important; " class="hero">
+      <div class="container">
+        <div class="row">
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+          <h1></h1>
+
+        </div><a href=".intro" class="continue link-scroll"><i class="fa fa-long-arrow-down"></i> Bajar</a>
+      </div>
+    </section>
+    <!-- Intro Section-->
+    <section class="intro">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <h2 class="h3">Objetivos de Desarrollo Sostenible</h2>
+            <p class="text-big">Los Objetivos de <strong>Desarrollo Sostenible</strong>, también conocidos por sus siglas  <strong>ODS</strong>, son una iniciativa impulsada por Naciones Unidas para dar continuidad a la agenda de desarrollo tras los Objetivos de Desarrollo del Milenio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="featured-posts no-padding-top">
+      <div class="container">
+ 
+        
+
+
+    <!-- Divider Section-->
+
+    <section  style="width:100; background: url({% static 'img/divider-bg.jpg' %}); background-size: cover; background-position: center bottom" class="divider">
+      <center>
+      <div class="container">
+        <div class="text-center d-flex justify-content-center " style="width: 600px;">              
+          <h2 style="background-color: #f7f7f7;opacity: .7;" class="text-center">Página desarrollada por el Grupo 5 de la Comisión 3 del Informatorio 2021® </h2>
+        </div> 
+        <div class="row">
+          <div class="col-md-7 align-items-end " style='text-align:right'>   
+            <a href="#" class="hero-link " >Ir Arriba</a>
+          </div>
+        </div>
+      </div>
+     </center>
+    </section>
+    <!-- Latest Posts -->
+    <section class="latest-posts"> 
+      <div class="container">
+        <header> 
+          <h2>Las últimas publicaciones</h2>
+        </header>
+        <div class="row">
+          {% for obj in latest %}
+          <div class="post col-md-4">
+            <div class="post-thumbnail"><a href="{{ obj.get_absolute_url }}"><img src="{{ obj.thumbnail.url }}" alt="..." class="img-fluid"></a></div>
+            <div class="post-details">
+              <div class="post-meta d-flex justify-content-between">
+                <div class="date">{{ obj.timestamp }}</div>
+                <div class="category">
+                  {% for cat in obj.categories.all %}
+                  <a href="#">{{ cat }}</a>
+                  {% endfor %}
+                </div>
+              </div><a href="{{ obj.get_absolute_url }}">
+                <h3 class="h4">{{ obj.title }}</h3></a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    <!-- Newsletter Section-->
+    <section class="newsletter no-padding-top">    
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Suscribete</h2>
+            <p class="text-big">Dejanos tu email si estás interesado en saber más.</p>
+          </div>
+          <div class="col-md-8">
+            <div class="form-holder">
+              <form action="." method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                  <input type="email" name="email" id="email" placeholder="Type your email address">
+                  <button type="submit" class="submit">Subscribe</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!----Carrusel de Iamgenes-->
+
+    
+    {% include 'carrusel.html' %}
+
+
+
+
+{% endblock content %}    
